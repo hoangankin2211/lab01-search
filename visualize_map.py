@@ -89,4 +89,4 @@ for i in range(len(matrix)):
         else:
             pass
 
-visualize_maze(matrix,bonus_points,start,end)
+# visualize_maze(matrix,bonus_points,start,end)
