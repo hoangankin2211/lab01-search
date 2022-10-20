@@ -88,5 +88,3 @@ for i in range(len(matrix)):
                 end=(i,j)     
         else:
             pass
-
-# visualize_maze(matrix,bonus_points,start,end)
