@@ -1,3 +1,4 @@
+from algo.GBFS import GBFS
 from visualize_map import*
 
 from algo.BFS import *
@@ -20,6 +21,5 @@ for i in range(len(matrix)):
 print(start)
 print(end)
 
-route = BFS(matrix, start, end).find()
-
+route =GBFS(matrix, start, end).solve()
 visualize_maze(matrix,bonus,start,end,route)
