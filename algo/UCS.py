@@ -1,5 +1,5 @@
-from collections import deque
-from queue import *
+
+from algo.priority_queue import PriorityQueue
 class UCS:
     def __init__(self, matrix, startPoint, endPoint):
         self.matrix = matrix
@@ -17,10 +17,12 @@ class UCS:
         opened.append(self.startPoint)
         listAdjacent.put([0,self.startPoint])
         
-        while listAdjacent.not_empty:
-            currentPoint = listAdjacent.get()
+        while not listAdjacent.isEmpty:
+            currentPoint = listAdjacent.pop()
             if currentPoint == self.endPoint:
                 break
+            
+
 
 
 
