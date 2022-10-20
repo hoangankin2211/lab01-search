@@ -1,10 +1,9 @@
-from algo.GBFS import GBFS
+from algo.DFS import DFS
 from visualize_map import*
-
 from algo.BFS import *
 
 
-bonus, matrix = read_file( 'maze_map.txt')
+bonus, matrix = read_file('maze_map.txt')
 
 for i in range(len(matrix)):
     for j in range(len(matrix[0])):
@@ -18,8 +17,8 @@ for i in range(len(matrix)):
         else:
             pass
 
-print(start)
-print(end)
+print('start'+str(start))
+print('end' + str(end))
 
-route =GBFS(matrix, start, end).solve()
+route =DFS(matrix, start, end).getRoute()
 visualize_maze(matrix,bonus,start,end,route)

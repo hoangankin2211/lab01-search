@@ -1,32 +1,36 @@
+from collections import deque
 from queue import *
 class BFS:
-    def __init__(self, matrix, start, end):
+    def __init__(self, matrix, startPoint, endPoint):
         self.matrix = matrix
-        self.start = start
-        self.end = end
+        self.startPoint = startPoint
+        self.endPoint = endPoint
         self.border = 'x'
-        self.move = [(1, 0),(-1, 0),(0, 1),(0, -1)]
+        self.move = {'up':(1, 0),'down':(-1, 0),'right':(0, 1),'left':(0, -1)}
 
-    def find(self):
-        opened, queue = [], Queue()
-        queue.put(self.start)
-        opened.append(self.start)
-        trace = {self.start: None}
+    def getRoute(self):
+        opened = []
+        queue = Queue()
+        parent = dict()
+                
+        queue.put(self.startPoint)
+        opened.append(self.startPoint)
+        parent[self.startPoint] = None
+        
         while queue.not_empty:
             currentPoint = queue.get()
-            if currentPoint == self.end:
+            if currentPoint == self.endPoint:
                 break
             for step in self.move:
-                newPoint = (currentPoint[0] + step[0], currentPoint[1] + step[1])
+                newPoint = (currentPoint[0] + self.move[step][0], currentPoint[1] + self.move[step][1])
                 if self.__isInsideMap(newPoint) and newPoint not in opened:
-                    trace[newPoint] = currentPoint
+                    parent[newPoint] = currentPoint
                     opened.append(newPoint)
                     queue.put(newPoint)
                 else:
                     continue
 
-        return self.__getPath(trace)
-
+        return self.__retrievePoint(parent)
 
     def __isInsideMap(self, point):
         if point[0] >= len(self.matrix) or point[0] < 0:
@@ -37,15 +41,14 @@ class BFS:
             return False
         return True
 
-    def __getPath(self, trace):
-        current = self.end
-        path = []
+    def __retrievePoint(self, parent):
+        destination = self.endPoint
+        retrieve = []
 
-        while current != self.start:
-            print(current)
-            path.append(current)
-            current = trace[current]
+        while destination != self.startPoint:
+            retrieve.append(destination)
+            destination = parent[destination]
 
-        path.append(self.start)
-        path.reverse()
-        return path
+        retrieve.append(self.startPoint)
+        retrieve.reverse()
+        return retrieve
