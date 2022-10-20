@@ -1,26 +1,23 @@
 from queue import *
-
-from algo.Map import *
-
-
 class BFS:
-    def __int__(self, matrix, start, end):
+    def __init__(self, matrix, start, end):
         self.matrix = matrix
-        self.startPoint = start
-        self.endPoint = end
+        self.start = start
+        self.end = end
         self.border = 'x'
-        self.move = {'up': (1, 0),'down': (-1, 0),'right':(0, 1),'left': (0, -1)}
+        self.move = [(1, 0),(-1, 0),(0, 1),(0, -1)]
 
     def find(self):
         opened, queue = [], Queue()
-        queue.put(self.startPoint)
-        trace = {self.startPoint: None}
-        while not queue.empty:
+        queue.put(self.start)
+        opened.append(self.start)
+        trace = {self.start: None}
+        while queue.not_empty:
             currentPoint = queue.get()
-            if currentPoint == self.endPoint:
+            if currentPoint == self.end:
                 break
             for step in self.move:
-                newPoint = (currentPoint[0] + self.move[step][0], currentPoint[1] + self.move[step][1])
+                newPoint = (currentPoint[0] + step[0], currentPoint[1] + step[1])
                 if self.__isInsideMap(newPoint) and newPoint not in opened:
                     trace[newPoint] = currentPoint
                     opened.append(newPoint)
@@ -41,13 +38,14 @@ class BFS:
         return True
 
     def __getPath(self, trace):
-        current = self.endPoint
+        current = self.end
         path = []
 
-        while current != self.startPoint:
+        while current != self.start:
+            print(current)
             path.append(current)
             current = trace[current]
 
-        path.append(self.startPoint)
+        path.append(self.start)
         path.reverse()
         return path
