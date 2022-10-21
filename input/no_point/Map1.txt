@@ -1,16 +1,16 @@
 0
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-x   x                            *  
-x   x   x   xxxxxxxxxxxxxxx  xxxxx                     
-x       x                        x 
-xxxxxxxxxxxxxxxxxxxx  xxxxxxx    x                         
-x     x      x        x          x 
+x   x                             
+x   x   x   xxxxxxxxxxxxxxx  xxxxx
+x       x                        x
+xxx   xxx    xxxxxxx  xxxxxxx    x
+x     x      x        x          x
 x    x     x          x          x
-x    x   x     x    xxxxxxxxxxxxxx            
-x    x         x                 x 
-x          xxxxxxxxxxxxxxxxxx    x                  
-x                         x     xx 
-x    xxxxxxxxxxxxxxxxx    x     xx                  
-x    x      x                  xxx 
-x        xxxxxx    xxxxxxxxxxxxxxx      
+x    x   x     x    x     xx  xxxx
+x    x         x                 x
+x          xxxxxxx  xxxxxxxxx    x
+x                         x     xx
+x    xxxxx    xxxxxxxx    x     xx
+x    x      x                  xxx
+x S      xxxxxx    xxxxx        xx
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -52,13 +52,17 @@ def visualize_maze(matrix, bonus, start, end, route=None):
     plt.yticks([])
     plt.show()
 
+    plt.savefig('result.jpg')
+
     print(f'Starting point (x, y) = {start[0], start[1]}')
     print(f'Ending point (x, y) = {end[0], end[1]}')
     
     for _, point in enumerate(bonus):
       print(f'Bonus point at position (x, y) = {point[0], point[1]} with point {point[2]}')
 
-def read_file(file_name: str = 'maze.txt'):
+    return plt
+
+def read_file(file_name):
   f=open(file_name,'r')
   n_bonus_points = int(next(f)[:-1])
   bonus_points = []

@@ -1,3 +1,6 @@
+from tokenize import Double
+
+
 class PriorityQueue:
     def __init__(self):
         self.queue = []
@@ -10,12 +13,12 @@ class PriorityQueue:
     
     def pop(self):
         try:
-            max_val = 0
+            min_val = 0
             for i in range(len(self.queue)):
-                if self.queue[i]['priority'] > self.queue[max_val]['priority']:
-                    max_val = i
-            item = self.queue[max_val]
-            del self.queue[max_val]
+                if float(self.queue[i]['priority']) < float(self.queue[min_val]['priority']):
+                    min_val = i
+            item = self.queue[min_val]
+            del self.queue[min_val]
             return item["item"],item["priority"]
         except IndexError:
             print()
