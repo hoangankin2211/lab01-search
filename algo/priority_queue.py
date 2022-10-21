@@ -5,17 +5,18 @@ class PriorityQueue:
     def isEmpty(self):
         return len(self.queue) == 0
  
-    def insert(self, item, data):
-        self.queue.append({'item': item, 'data': data })
+    def insert(self, item, priority):
+        self.queue.append({'item': item, 'priority': priority })
     
     def pop(self):
         try:
             max_val = 0
             for i in range(len(self.queue)):
-                if self.queue[i]['data'] > self.queue[max_val]['data']:
+                if self.queue[i]['priority'] > self.queue[max_val]['priority']:
                     max_val = i
             item = self.queue[max_val]
             del self.queue[max_val]
-            return item['item']
+            return item["item"],item["priority"]
         except IndexError:
             print()
+    

@@ -21,7 +21,7 @@ class GBFS:
         result[self.startPoint] = None
 
         while not pq.isEmpty():
-            item = pq.pop()
+            item , priority= pq.pop()
             print(item) 
             if item == self.endPoint:
                 break

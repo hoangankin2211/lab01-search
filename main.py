@@ -1,5 +1,6 @@
 from algo.DFS import DFS
 from algo.GBFS import GBFS
+from algo.UCS import UCS
 from visualize_map import*
 from algo.BFS import *
 
@@ -21,5 +22,5 @@ for i in range(len(matrix)):
 print('start'+str(start))
 print('end' + str(end))
 
-route =GBFS(matrix, start, end).getRoute()
+route =UCS(matrix, start, end).getRoute()
 visualize_maze(matrix,bonus,start,end,route)
